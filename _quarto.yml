@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "My data blog"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/PeterTOC
+      - icon: linkedin
+        href: https://www.linkedin.com/in/peterboshe/
+format:
+  html:
+    theme: minty
+    css: styles.css
+
+editor: visual
+

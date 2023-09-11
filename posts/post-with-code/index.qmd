@@ -1,0 +1,132 @@
+---
+title: "Tanzania Mainland Football Championships; 1965 - 2020"
+author: "Peter Boshe"
+date: "2021-11-29"
+code-copy: true
+categories: 
+  - DataViz
+  - Unguided Project
+  - R-programming
+image: "../../assets/mainland_championship.gif"
+description: "This is a racing bar chart of the male football championships and the respective teams that have won over the past half century"
+subject: "portfolio"
+---
+
+This is a racing bar chart of the championships and the respective teams that have won over the past half century(acc. to [Data](http://www.rsssf.com/tablest/tanzchamp.html)),
+
+Would you have guessed that less than 10 teams (only 9 teams) have won since the conception of the cup?
+
+```{r }
+#| label: image-code
+#| code-fold: true
+#| fig-cap: racing plot of the mainland champions in Tanzania
+#| warning: false
+#| message: false
+#| cache: true
+
+
+## setting up the environment
+# clear environment 
+rm(list = ls())
+
+# setting environment 
+library(readxl)
+library(tidyverse)
+library(gganimate)
+library(lubridate)
+library(gifski)
+library(png)
+library(knitr)
+
+# loading data 
+df <- read_excel("Tanzania mainland championships.xlsx")
+
+## pre-processing
+df2 <- df %>% 
+  mutate(Cup = 1) %>% 
+  complete(Team, Year) %>% 
+  replace_na(list(Cup = 0)) %>%  
+  group_by(Team) %>% 
+  mutate(count = cumsum(Cup))
+  
+df2 %>% 
+  group_by(Year) %>% 
+  arrange(Year, -count) %>% 
+  #assign ranking
+  mutate(rank = 1:n()) ->
+ranked_by_year
+
+my_theme <- theme_classic(base_size = 22, 
+                          base_family = "Times") +
+  theme(axis.text.y = element_blank()) +
+  theme(axis.ticks.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
+  theme(legend.position = "none")
+  # theme(legend.background = element_rect(fill = "gainsboro")) +
+  # theme(plot.background = element_rect(fill = "gainsboro")) +
+  # theme(panel.background = element_rect(fill = "gainsboro"))
+
+### Static Plot
+values <- c("Azam FC" = "blue", "Young Africans SC" = "yellow", "Simba SC" = "red", "Hybrid SC" = "brown", "Cosmopolitan" = "lightblue", "Coastal Union" = "black", "Tukuyu Stars" = "orange", "Mtibwa Sugar" = "darkgreen")
+
+
+ranked_by_year %>% 
+   ggplot(
+  aes(xmin = 0,
+      xmax = count,
+      ymin = rank - .45,
+      ymax = rank + .45,
+      y = rank,
+    fill = Team
+  )
+) +
+  geom_rect(alpha = .7) +  
+  geom_text(col = "gray13",  
+            hjust = "right",  
+            aes(label = Team),  
+            x = -1) + 
+    geom_text(aes(count + 1,
+                  label = round(count)),
+            color = "black",
+            position = "identity",
+            size = 3.5) +
+  scale_y_reverse() +
+  scale_fill_manual("legend", values = values) +
+  # scale_x_continuous(
+  #   limits = c(-39, 27),
+  #   breaks = 1:30) +
+  labs(
+    title = "Mainland Championships",
+    x = "Cups Won",
+    y = ""
+  ) + 
+    facet_wrap(~ Year) +
+  my_theme ->
+my_plot
+
+
+## Make Gif
+my_plot +  
+  facet_null() +  
+  scale_x_continuous(
+    limits = c(-10, 40),
+    breaks = seq(0, 30, 5)) +
+  geom_text(x = 30, y = -7.5,  
+            family = "Times",  
+            aes(label = as.character(Year)),  
+            size = 20, col = "grey18") +  
+  aes(group = Team) +  
+  transition_time(Year) -> p
+
+
+
+animate(p, fps = 2, duration = 28, width = 800, height = 600) -> anim
+#save the gif 
+anim_save("../../assets/mainland_championship.gif", anim)
+# display the gif
+anim
+```
+
+```{r}
+
+```

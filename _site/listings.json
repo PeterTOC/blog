@@ -1,0 +1,10 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/Publishing interactive documents with quarto/publishing_with_quarto.html",
+      "/posts/welcome/index.html",
+      "/posts/post-with-code/index.html"
+    ]
+  }
+]

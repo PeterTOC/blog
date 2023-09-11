@@ -1,0 +1,14 @@
+---
+title: "Peter Boshe | Data Specialist"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  fields: [image, date, title, author, description, reading-time, affiliation, subject]
+  categories: numbered
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+title-block-style: default
+---
