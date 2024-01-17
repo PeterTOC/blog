@@ -91,7 +91,7 @@ Using functional programming this can be acheived as follows;
 4.  **map** the function to the whole list of url links (remember to throttle requests as explained above and to allow for failed attempts)
 5.  tabulate results
 
-Below is sample script in R for a recent webscraping project I did recently using the principles above toobtain the data to create [this dashboard.](%22https://petertoc.github.io/flexdashoard%22) hosted on github pages.
+Below is sample script in R for a recent webscraping project I did recently using the principles above toobtain the data to create [this dashboard.](https://petertoc.github.io/flexdashboard/) hosted on github pages.
 
 ```{r, eval = FALSE, echo = TRUE}
 
