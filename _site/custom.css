@@ -1,0 +1,51 @@
+/*-- scss:uses --*/
+header {
+  background-color: #186974 !important;
+  color: white;
+  padding: 1rem;
+}
+header nav {
+  background-color: #186974 !important;
+  display: flex !important;
+  padding: 0rem 0.4rem;
+}
+header div {
+  background-color: #186974 !important;
+  color: wheat !important;
+}
+header div h1 {
+  color: wheat !important;
+}
+header div button.code-tools-button {
+  color: white !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #555555;
+}
+
+.navbar-logo {
+  max-height: 4rem !important;
+}
+
+a.navbar-brand {
+  color: wheat !important;
+  padding: 0rem 1rem;
+}
+
+.navbar-brand-container {
+  width: 100% !important;
+  font-weight: bold;
+  color: #555555;
+  text-align: center;
+}
+
+a {
+  color: #186974;
+}
+
+#horizontalDiv {
+  background-color: red;
+  height: 2px; /* Adjust the height as per your preference for thickness */
+  width: 100%; /* Make it span the entire width of the page */
+}/*# sourceMappingURL=custom.css.map */

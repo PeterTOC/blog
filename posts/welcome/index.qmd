@@ -1,0 +1,281 @@
+---
+title: "Proper Web Scraping Etiquette"
+author: "Peter Boshe"
+date: "2021-12-03"
+categories: ["Unguided Project", "Data Mining", "Web Scraping", "R-programming"]
+code-fold: true
+code-summary: "Click to view sample code"
+code-copy: true
+toc: true
+toc-depth: 5
+image: "thumbnail.jpg"
+description: "In this article we take a look at how we can scrape raw information/data from websites without the hassle of copying and pasting and clicking and retyping whole data tables and *then* analysing your data."
+subject: "learning"
+---
+
+## Why Web Scrape?
+
+![](thumbnail.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = 'center', collapse = TRUE)
+```
+
+If you are working in today's world, Many a times you would come across tasks where you need to find data published on a website, you finally find and it's all good.. except.. where is the download button?
+
+Now, how frustrated I would usually get would depend on the amount of data to be copy&pasted or retyped, number of pages I have to click through, how many values I have to filter to find my required information, which is usually a lot.
+
+But thanks to the data scraping tools and techniques available today, I was able to spice up my workflow by extracting the information required by selecting the data elements straight from the html page. An example of a scraping script to be demonstrated later in this article.
+
+## Web Scraping Etiquette
+
+A wise philosopher named Ben once said
+
+> "with great power comes great responsibility"
+
+Well this relates to a lot of things and Data Scraping is no exception.
+
+The following are three staples for scraping politeness;
+
+1.  **Introduce yourself**
+
+    It is always a good idea to leave an introductory note in the `User-Agent` Field, the note should include your email and purpose of scraping. exaple below; <!-- #REVIEW to check alternative for r -->
+
+    ```{r}
+    #| include: false
+    # FIXME to be deleted
+    ```
+
+2.  **Throttle your requests**
+
+    As web scraping by code does not offer the natural buffer between requests to a website like one would do when retrieving the data manually, and while servers for websites like Wikipedia would likely not feel a thing. One can easily overload a server if the frequency of requests is not supported, especially when dealing with large amounts of data. If many people are simultaneously trying to get a massive amount of data this could easily overwhelm the system which can hurt a service provider, we do not want that..
+
+3.  **Cite your source**
+
+    Well this golden rule depends on the reason of scraping, It is always Imperative that we cite our data sources in any publication.
+
+Now let me introduce my personal tenets to webscraping I have learned to abide by given my experience;
+
+## Webscraping tenets
+
+-   
+
+    Xpaths over CSS selectors
+
+    :   When web scraping you are going to want to select items of interest from the target of interest, and depending on what language you use to code, it normally comes down to whether you are going to identify the items for your script by their **CSS/HTML** tags or by their **xpaths**. From my recent endevours I have found the latter to be a more robust option as the xpaths tend to be more uniform throughout most pages.
+
+-   
+
+    Hope for the best, Plan for the worst
+
+    :   While scraping it's good practise to test out your script on the web pages of interest, we are not always sure the web format will always remain the same in the future. So it is important to have a contigency plan, for instance you would much rather have your script impute 'NA's on items it failed to scrape and continue with its scraping, instead of having your script fail and stop on its first obstacle. In R this can be achieved by functions like `safely()` and `possibly()` in the tidyverse ecosystem.
+
+-   
+
+    If your Internet is shaky, increase your timeout limit
+
+    :   I, for one, do not have very reliable internet service so my script kept getting timed out in between the requests, and when you are timed out, your script goes sit on a corner. You get an error with no results. as a solution I simply increased my timeout limit to 60 seconds and I had no further issues.
+
+-   
+
+    Functional programming FOR THE WIN!
+
+    :   This is a concept I learned of recently that eases the process of repetitive tasks.
+
+For instance, for a task where we are supposed to scrape a parent page, extract the links of several job posts from the parent page, then exctract information from the individual pages from each of the links scraped from the parent page. Writing code to scrape each page individually will be time draining, to say the least.
+
+Using functional programming this can be acheived as follows;
+
+1.  pick a link from the list of pages to scrape
+2.  write code to scrape the target info from that one page
+3.  if code works, turn code into a **function**
+4.  **map** the function to the whole list of url links (remember to throttle requests as explained above and to allow for failed attempts)
+5.  tabulate results
+
+Below is sample script in R for a recent webscraping project I did recently using the principles above toobtain the data to create [this dashboard.](https://petertoc.github.io/flexdashboard/) hosted on github pages.
+
+```{r, eval = FALSE, echo = TRUE}
+
+# script to extract to webscrape indeed for entry level data scientist
+
+# Author: Peter Boshe
+# Version: 2022-05-07
+
+# Packages
+library(tidyverse)
+library(rvest)
+library(httr)
+library(broom)
+require(wordcloud2)
+require(tm)
+
+# Parameters
+url <- "https://www.indeed.com/jobs?q=entry%20level%20data%20scientist&l=Remote&from=searchOnHP&vjk=e4dd563aa0c5df59"
+domain <- "https://www.indeed.com"
+file_out <- here::here("data/table.rds")
+file_out2 <- here::here("data/wordcloud.html")
+report <- here::here("index.Rmd")
+html_output <- here:: here("docs/")
+log_output <- here::here("data/logs/")
+
+# ============================================================================
+
+# Code
+
+
+
+html <- url |>
+  GET(timeout(60)) |>
+  read_html()
+
+
+job_title <- html |>
+  html_nodes("span[title]") |>
+  html_text()
+
+
+company <- html |>
+  html_nodes("span.companyName") |>
+  html_text()
+
+location <- html |>
+  html_nodes("div.companyLocation") |>
+  html_text()
+
+
+links <- html |>
+  html_nodes(xpath = "/html/body//tbody//div[1]/h2/a") |>
+  html_attr("href")
+
+max_length <- length(job_title)
+df <- data.frame(job_title,
+                 company,
+                 location,
+                 domain,
+                 links) |>
+  mutate(url_link = str_c(domain,"",links)) |>
+  select(job_title, company, location, url_link)
+
+
+# second iteration through the links --------------------------------------
+
+# test with one link
+
+# x <- "https://www.indeed.com/rc/clk?jk=655e1551430353b4&fccid=11619ce0d3c2c733&vjs=3"
+
+extract_description <- function(x) {
+
+  Sys.sleep(2) # to pause between requests
+
+  cat(".") # stone age progress bar
+
+  # html2 <- read_html(x)
+  html2 <- x |>
+    GET(timeout(60)) |> # important to not get timed out in some of the requests
+    read_html()
+
+  job_description <- html2 |>
+    html_nodes(xpath = '//*[@id="jobDescriptionText"]') |>
+    html_text() |>
+    str_squish()
+
+  count_r <- job_description |>
+    str_count('[./ ,]R{1}[./ ,]')
+
+  r_present <- job_description |>
+    str_detect('[./ ,]R{1}[./ ,]')
+
+
+  data.frame(job_description = job_description,
+         r_present = r_present,
+         count_r = count_r)    #important to name the variables to avoid script failure
+
+}
+
+
+# functional programming for the win! -------------------------------------
+
+
+listed_df <- df |>
+  mutate(description = map(url_link, safely(~ extract_description(.x), otherwise = NA_character_)))
+
+
+# Our new data set --------------------------------------------------------
+
+indeed_df <- listed_df |>
+  unnest(description) |>
+  unnest(description) |>
+  arrange(desc(count_r))
+
+# Write out table
+
+write_rds(indeed_df,file_out)
+
+
+# word cloud --------------------------------------------------------------
+
+
+
+df <- indeed_df
+
+# text mining
+# create corpus function
+corpus_tm <- function(x){
+  corpus_tm <- Corpus(VectorSource(x))
+}
+#create corpus
+df |>
+  pull(job_description) |>
+  unlist() |> # might need to remove
+  corpus_tm() ->corpus_descriptions
+
+#inspect corpus
+# summary(corpus_descriptions)
+
+corpus_descriptions |>
+  tm_map(removePunctuation) |>
+  tm_map(stripWhitespace) |>
+  tm_map(content_transformer(function(x) iconv(x, to='UTF-8', sub='byte'))) |>
+  tm_map(removeNumbers) |>
+  tm_map(removeWords, stopwords("en")) |>
+  tm_map(content_transformer(tolower)) |>
+  tm_map(removeWords, c("etc","ie","eg", stopwords("english"))) -> clean_corpus_descriptions
+
+# inspect content
+
+#clean_corpus_descriptions[[1]]$content
+
+# create termdocumentmatrix to attain frequent terms
+
+find_freq_terms_fun <- function(corpus_in){
+  doc_term_mat <- TermDocumentMatrix(corpus_in)
+  freq_terms <- findFreqTerms(doc_term_mat)[1:max(doc_term_mat$nrow)]
+  terms_grouped <- doc_term_mat[freq_terms,] %>%
+    as.matrix() %>%
+    rowSums() %>%
+    data.frame(Term=freq_terms, Frequency = .) %>%
+    arrange(desc(Frequency)) %>%
+    mutate(prop_term_to_total_terms=Frequency/nrow(.))
+  return(data.frame(terms_grouped))
+}
+
+description_freq_terms <- data.frame(find_freq_terms_fun(clean_corpus_descriptions))
+
+# save out wordcloud
+
+htmlwidgets::saveWidget(wordcloud2::wordcloud2(description_freq_terms[,1:2], shape="circle",
+                                               size=1.6, color='random-light', backgroundColor="#7D1854"),  #ED581F
+                        file = file_out2,
+                        selfcontained = FALSE)
+
+# knit report
+
+rmarkdown::render(report, output_dir = html_output)
+
+
+# clean environment
+rm(list = ls())
+
+
+
+```

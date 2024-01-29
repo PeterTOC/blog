@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Peter Boshe's Data Blog"
+  navbar:
+    favicon: assets/logotea.png
+    logo: assets/logotea.png
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/PeterTOC
+      - icon: linkedin
+        href: https://www.linkedin.com/in/peterboshe/
+format:
+  html:
+    theme: 
+      light: "cosmo"
+      dark: "darkly"
+    css: custom.css
+
+editor: visual
+

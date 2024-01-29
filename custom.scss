@@ -1,0 +1,86 @@
+/*-- scss:uses --*/
+
+$base-color: #1ec7de;
+$base-color-darker: #186974;
+$base-color-lighter: wheat;
+$base-header: #555555;
+
+@mixin flexCenter {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    text-align: center;
+    margin: auto;
+}
+
+
+header {
+  background-color: $base-color-darker !important;
+  color: white;
+  padding: 1rem;
+
+  nav {
+    background-color: #186974 !important;
+    display: flex !important;
+    padding: 0rem 0.4rem;
+
+  }
+  
+  div {
+    background-color: $base-color-darker !important;
+    color: $base-color-lighter !important;
+
+    h1 {
+        color: $base-color-lighter !important;
+    }
+    
+    // for code expansion styling
+    button.code-tools-button {
+        color: white !important;
+    }
+  }
+
+  
+
+}
+
+
+// Apply the default heading color to all headings
+h1, h2, h3, h4, h5, h6 {
+  color: $base-header;
+}
+
+
+// for logo sizing
+.navbar-logo {
+    max-height: 4rem !important;
+}
+
+
+// styling for the site title
+a.navbar-brand {
+    color: $base-color-lighter !important;
+    padding: 0rem 1rem;
+  }
+
+// for the main blog heading
+.navbar-brand-container {
+
+    width: 100% !important;
+    font-weight: bold;
+    color: $base-header;
+    text-align: center;
+}
+
+
+
+a {
+    color: $base-color-darker;
+}
+
+#horizontalDiv {
+            background-color: red;
+            height: 2px; /* Adjust the height as per your preference for thickness */
+            width: 100%; /* Make it span the entire width of the page */
+        }
