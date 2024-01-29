@@ -8,6 +8,7 @@ code-summary: "Click to view sample code"
 code-copy: true
 toc: true
 toc-depth: 5
+image: "thumbnail.jpg"
 description: "In this article we take a look at how we can scrape raw information/data from websites without the hassle of copying and pasting and clicking and retyping whole data tables and *then* analysing your data."
 subject: "learning"
 ---
