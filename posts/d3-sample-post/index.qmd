@@ -1,0 +1,15 @@
+---
+title: "D3 charts in Observable JS"
+author: "Peter Boshe"
+date: "2024-02-04"
+categories: ["Guided Project", "DataViz"]
+code-fold: true
+code-summary: "Click to view sample code"
+code-copy: true
+toc: true
+toc-depth: 5
+image: "thumbnail.jpeg"
+description: "This is an excercise in using observable JS in Quarto for Data Visualizations"
+subject: "learning"
+draft: true
+---

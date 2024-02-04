@@ -1,0 +1,28 @@
+---
+title: "Visualization - Case Study Selection"
+author: "Peter Boshe"
+date: "2021-05-01"
+categories: ["Unguided Project", "Data Mining", "Unsupervised Learning", "Cluster Analysis"]
+code-fold: true
+code-summary: "Click to view sample code"
+code-copy: true
+toc: true
+toc-depth: 5
+image: "thumbnail.png"
+description: "The project includes charts that were used in a research paper on 'Data Protection Regulation in Africa."
+subject: "learning"
+---
+
+The task was to mine for relevant data and presenting them in a manner that would simplify the decision making process in picking countries as case studies.
+
+-   The aim of the research paper was to assess the state and level of data protection regulation in Africa in order to;
+
+    -   Get a deeper feel of the trends present among the countries,
+
+    -   To find out which nations are to a more degree exposed to data mishandling,
+
+    -   To find out which countries have strategies in place to safeguard their citizens\' right of privacy.
+
+> The following are some of the visuals that I had then created.
+
+![](https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot06.png) ![](https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot07.png) ![](https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot08.png) ![](https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot09.png)

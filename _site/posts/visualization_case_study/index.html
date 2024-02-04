@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Peter Boshe">
+<meta name="dcterms.date" content="2021-05-01">
+<meta name="description" content="The project includes charts that were used in a research paper on ’Data Protection Regulation in Africa.">
 
-<title>Peter Boshe’s Data Blog</title>
+<title>Peter Boshe’s Data Blog - Visualization - Case Study Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,40 +64,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-description','listing-reading-time','listing-affiliation','listing-subject',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
 <body class="nav-fixed">
@@ -106,10 +76,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logotea.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/logotea.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Peter Boshe’s Data Blog</span>
     </a>
   </div>
@@ -120,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -142,235 +112,74 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Visualization - Case Study Selection</h1>
+                  <div>
+        <div class="description">
+          The project includes charts that were used in a research paper on ’Data Protection Regulation in Africa.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Unguided Project</div>
+                <div class="quarto-category">Data Mining</div>
+                <div class="quarto-category">Unsupervised Learning</div>
+                <div class="quarto-category">Cluster Analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Peter Boshe </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 1, 2021</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Cluster Analysis">Cluster Analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Data Mining">Data Mining <span class="quarto-category-count">(3)</span></div><div class="category" data-category="DataViz">DataViz <span class="quarto-category-count">(2)</span></div><div class="category" data-category="E.D.A">E.D.A <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Publishing">Publishing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R-programming">R-programming <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Reporting">Reporting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Unguided Project">Unguided Project <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Unsupervised Learning">Unsupervised Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Web Scraping">Web Scraping <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>The task was to mine for relevant data and presenting them in a manner that would simplify the decision making process in picking countries as case studies.</p>
+<ul>
+<li><p>The aim of the research paper was to assess the state and level of data protection regulation in Africa in order to;</p>
+<ul>
+<li><p>Get a deeper feel of the trends present among the countries,</p></li>
+<li><p>To find out which nations are to a more degree exposed to data mishandling,</p></li>
+<li><p>To find out which countries have strategies in place to safeguard their citizens' right of privacy.</p></li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>The following are some of the visuals that I had then created.</p>
+</blockquote>
+<p><img src="https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot06.png" class="img-fluid"> <img src="https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot07.png" class="img-fluid"> <img src="https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot08.png" class="img-fluid"> <img src="https://peterboshe.netlify.app/post/2020-12-01-visualization-case-study-selection/index.en_files/figure-html/Rplot09.png" class="img-fluid"></p>
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Reporting,Publishing,R-programming" data-listing-date-sort="1669669200000" data-listing-file-modified-sort="1706536294344" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/Publishing interactive documents with quarto/publishing_with_quarto.html"> <img src="assets/logotea.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/Publishing interactive documents with quarto/publishing_with_quarto.html">
-<h3 class="no-anchor listing-title">
-Deploying an Interactive Quarto Report
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>This article is meant to be a step by step guide in publishing an interactive analytical report on the web for your stake-holders</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/Publishing interactive documents with quarto/publishing_with_quarto.html">
-<div class="listing-date">
-Nov 29, 2022
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-2 min
-</div>
-<div class="metadata-value listing-affiliation">
-AfyaIntelligence
-</div>
-<div class="metadata-value listing-subject">
-guide
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Unguided Project,Data Mining,Unsupervised Learning,Cluster Analysis" data-listing-date-sort="1651438800000" data-listing-file-modified-sort="1706618162008" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
-<div class="thumbnail">
-<p><a href="./posts/clustering_wine_data/index.html"> <img src="./posts/clustering_wine_data/thumbnail.jpeg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/clustering_wine_data/index.html">
-<h3 class="no-anchor listing-title">
-Clustering wine data with K-means algorithm
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>What a fun weekend dataset 😄 In this clustering project, I explore the strengths and weaknesses of two methods of dimensionality reduction when it comes to visualizing clusters.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/clustering_wine_data/index.html">
-<div class="listing-date">
-May 2, 2022
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-6 min
-</div>
-<div class="metadata-value listing-subject">
-learning
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Unguided Project,Data Mining,Web Scraping,R-programming" data-listing-date-sort="1638478800000" data-listing-file-modified-sort="1706536294352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <img src="./posts/welcome/thumbnail.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/welcome/index.html">
-<h3 class="no-anchor listing-title">
-Proper Web Scraping Etiquette
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>In this article we take a look at how we can scrape raw information/data from websites without the hassle of copying and pasting and clicking and retyping whole data tables and <em>then</em> analysing your data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html">
-<div class="listing-date">
-Dec 3, 2021
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-8 min
-</div>
-<div class="metadata-value listing-subject">
-learning
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="DataViz,Unguided Project,E.D.A" data-listing-date-sort="1638478800000" data-listing-file-modified-sort="1706618389744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
-<div class="thumbnail">
-<p><a href="./posts/debt_in_the_east/index.html"> <img src="./posts/debt_in_the_east/thumbnail.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/debt_in_the_east/index.html">
-<h3 class="no-anchor listing-title">
-Debt in the East; 1970 - 2020
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>In this article we explore the trends of debt and major events in Burundi, Kenya, Rwanda, Tanzania and Uganda.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/debt_in_the_east/index.html">
-<div class="listing-date">
-Dec 3, 2021
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-8 min
-</div>
-<div class="metadata-value listing-subject">
-research
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="DataViz,Unguided Project,R-programming" data-listing-date-sort="1638133200000" data-listing-file-modified-sort="1706536294344" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/index.html"> <img src="./assets/mainland_championship.gif" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/index.html">
-<h3 class="no-anchor listing-title">
-Tanzania Mainland Football Championships; 1965 - 2020
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>This is a racing bar chart of the male football championships and the respective teams that have won over the past half century</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/index.html">
-<div class="listing-date">
-Nov 29, 2021
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-4 min
-</div>
-<div class="metadata-value listing-subject">
-portfolio
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Unguided Project,Data Mining,Unsupervised Learning,Cluster Analysis" data-listing-date-sort="1619816400000" data-listing-file-modified-sort="1706618616327" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/visualization_case_study/index.html"> <img src="./posts/visualization_case_study/thumbnail.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/visualization_case_study/index.html">
-<h3 class="no-anchor listing-title">
-Visualization - Case Study Selection
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>The project includes charts that were used in a research paper on ’Data Protection Regulation in Africa.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/visualization_case_study/index.html">
-<div class="listing-date">
-May 1, 2021
-</div>
-<div class="listing-author">
-Peter Boshe
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-<div class="metadata-value listing-subject">
-learning
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

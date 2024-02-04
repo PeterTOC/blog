@@ -3,8 +3,11 @@
     "listing": "/index.html",
     "items": [
       "/posts/Publishing interactive documents with quarto/publishing_with_quarto.html",
+      "/posts/clustering_wine_data/index.html",
       "/posts/welcome/index.html",
-      "/posts/post-with-code/index.html"
+      "/posts/debt_in_the_east/index.html",
+      "/posts/post-with-code/index.html",
+      "/posts/visualization_case_study/index.html"
     ]
   }
 ]
